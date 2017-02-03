@@ -9,9 +9,9 @@ class TestViewRequests(TestCase):
         self.client = Client()
         self.url = reverse('request_list')
         response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'hello/requests.html')
+        self.assertTemplateUsed(response, 'requests.html')
         self.assertEqual(response.status_code, 200)
-    
+
     def test_displaying_requests(self):
         """ test view to return correct data """
         Requests.objects.all().delete()
