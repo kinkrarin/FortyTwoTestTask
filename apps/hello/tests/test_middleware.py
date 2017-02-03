@@ -1,6 +1,5 @@
 from django.test import TestCase, Client
-from apps.hello.models import Bio, Requests
-
+from apps.hello.models import Requests
 
 
 class TestMiddleware(TestCase):
@@ -16,4 +15,3 @@ class TestMiddleware(TestCase):
         self.assertEqual(req.count(), 1)
         self.assertEqual(req.last().path, 'http://testserver/request_list')
         self.assertEqual(req.last().method, 'GET')
-        

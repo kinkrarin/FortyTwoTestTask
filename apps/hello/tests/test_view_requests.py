@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from apps.hello.models import Bio, Requests
+from apps.hello.models import Requests
 from django.core.urlresolvers import reverse
 
 
@@ -16,9 +16,9 @@ class TestViewRequests(TestCase):
         """ test view to return correct data """
         Requests.objects.all().delete()
         Requests.objects.create(path='http://testserver/request_list/',
-                req_time='2016-12-30 10:43:53',
-                method='GET',
-                status=200)
+            req_time='2016-12-30 10:43:53',
+            method='GET',
+            status=200)
         for i in range(9):
             Requests.objects.create(
                 path='/' + 'test' + str(i) + '/',

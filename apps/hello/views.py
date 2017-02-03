@@ -26,4 +26,3 @@ def request_list_ajax(request):
         db_count['records'] = Requests.objects.count()
         data = json.dumps(db_count)
         return HttpResponse(data,  content_type="application/json")
-        
