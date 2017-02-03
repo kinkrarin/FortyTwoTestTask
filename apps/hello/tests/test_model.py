@@ -18,10 +18,10 @@ class BioModelTest(TestCase):
     def test_bio_model_fields(self):
         """test model that all fields are presence in model"""
         person = Bio(
-         name='Nick', last_name='Cave',
-         date_of_birth='1957-08-22', bio='musician',
-         email='nickcave@gmail.com', jabber='nickcave@42cc.co',
-         skype='nickcave', other_contacts='vk.com/nickcave')
+            name='Nick', last_name='Cave',
+            date_of_birth='1957-08-22', bio='musician',
+            email='nickcave@gmail.com', jabber='nickcave@42cc.co',
+            skype='nickcave', other_contacts='vk.com/nickcave')
         person.save()
         data_query = Bio.objects.get(name='Nick')
         self.assertEqual(str(data_query.name), 'Nick')

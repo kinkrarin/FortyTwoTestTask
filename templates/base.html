@@ -3,11 +3,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        
         <title>{% block title %}{% endblock title %}Site Name</title>
-
         <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
-
         <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -24,14 +21,11 @@
         <link rel="stylesheet"
               href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.js"></script>
-
         <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/screen.css' %}" media="screen, projection"/>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
         {% block extra_head %}{% endblock extra_head %}
-
     </head>
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
         {% block content %}{% endblock content %}
