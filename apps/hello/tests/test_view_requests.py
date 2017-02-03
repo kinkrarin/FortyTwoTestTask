@@ -15,10 +15,11 @@ class TestViewRequests(TestCase):
     def test_displaying_requests(self):
         """ test view to return correct data """
         Requests.objects.all().delete()
-        Requests.objects.create(path='http://testserver/request_list/',
-         req_time='2016-12-30 10:43:53',
-         method='GET',
-         status=200)
+        Requests.objects.create(
+        	path='http://testserver/request_list/',
+        	req_time='2016-12-30 10:43:53',
+        	method='GET',
+        	status=200)
         for i in range(9):
             Requests.objects.create(
                 path='/' + 'test' + str(i) + '/',
