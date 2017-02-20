@@ -1,9 +1,13 @@
+#from django.conf import settings
+#settings.configure()
 from django.shortcuts import render
 from apps.hello.models import Bio, Requests
 from django.http.response import HttpResponse
 import json
 from django.core import serializers
-
+from django.views.decorators.csrf import ensure_csrf_cookie
+import shelve
+title_additional = 0
 
 def home(request):
     aboutme = Bio.objects.first()
@@ -25,4 +29,6 @@ def request_list_ajax(request):
         db_count = {}
         db_count['records'] = Requests.objects.count()
         data = json.dumps(db_count)
-        return HttpResponse(data,  content_type="application/json")
+        return HttpResponse(data, content_type="application/json")
+
+                           
