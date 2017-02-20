@@ -3,7 +3,6 @@ from apps.hello.models import Bio, Requests
 from django.http.response import HttpResponse
 import json
 from django.core import serializers
-from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 def home(request):
@@ -27,5 +26,3 @@ def request_list_ajax(request):
         db_count['records'] = Requests.objects.count()
         data = json.dumps(db_count)
         return HttpResponse(data, content_type="application/json")
-
-                           

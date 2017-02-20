@@ -53,7 +53,7 @@ class TestViewRequests(TestCase):
             self.assertEqual(reqs[i].status, context[i].status)
 
     def test_returning_object_number(self):
-        """ """
+        """ test view returning correct number of objects"""
         Requests.objects.all().delete()
         for i in range(45):
             Requests.objects.create(
@@ -62,8 +62,9 @@ class TestViewRequests(TestCase):
                 method='GET',
                 status=200
             )
-        response = self.client.get(reverse('request_list_ajax'),
-                    content_type='application/json',
-                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        response = self.client.get(
+                reverse('request_list_ajax'),
+                content_type='application/json',
+                HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         response_number = ast.literal_eval(response.content)
         self.assertEqual(response_number['records'], 45)
